@@ -1,0 +1,20 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "yarn && yarn forever -w index.js"
+  },
+  "dependencies": {
+    "body-parser": "1.19.0",
+    "db-migrate": "^0.11.6",
+    "db-migrate-pg": "^1.0.0",
+    "express": "^4.17.1",
+    "forever": "^2.0.0",
+    "fs-extra": "9.0.0",
+    "knex": "0.20.13",
+    "objection": "2.1.3",
+    "pg": "^7.18.1"
+  }
+}
