@@ -15,11 +15,11 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = function (db) {
-	return db.removeColumn('machine','ifSee'), ('machine', 'weightingScore')
+	//return db.removeColumn('machine','ifSee'), ('machine', 'weightingScore')
 };
 
 exports.down = function(db) {
-  return db.addColumn('machine', 'ifSee'), ('machine', 'weightingScore')
+  //return db.addColumn('machine', 'ifSee'), ('machine', 'weightingScore')
 };
 
 exports._meta = {
