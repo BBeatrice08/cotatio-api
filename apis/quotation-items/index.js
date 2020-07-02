@@ -2,21 +2,22 @@
 const express = require(`express`);
 const Quotation_Item = require(`../../models/Quotation_Item`);
 const api = express.Router();
-
+/*
 api.get(`/`, (req, res) => {
   res.json({
     success: true,
   })
 });
-/*
-api.get(`/machine/:machineId`, async (req, res) => {
-  const quotations = await Quotation.query()
-  .where({ machine_id: req.params.machineId })
-  .withGraphFetched(`machine`);
-
-  res.json(quotations);
-});
 */
+api.get(`/`, async (req, res) => {
+  const quotation_items = await Quotation_Item.query()
+  .orderBy('id');
+  //.where({ machine_id: req.params.machineId })
+  //.withGraphFetched(`machine`);
+
+  res.json(quotation_items);
+});
+
 
 api.post(`/`, async (req, res) => {
   const quotation_item = await Quotation_Item.query()

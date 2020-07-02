@@ -2,13 +2,13 @@
 const express = require(`express`);
 const Quotation = require(`../../models/Quotation`);
 const api = express.Router();
-
+/*
 api.get(`/`, (req, res) => {
   res.json({
     success: true,
   })
 });
-
+*/
 api.get(`/machine/:machineId`, async (req, res) => {
   const quotations = await Quotation.query()
   .where({ machine_id: req.params.machineId })
