@@ -9,6 +9,11 @@ api.get(`/`, (req, res) => {
   })
 });
 */
+api.get(`/`, async (req, res) => {
+  const quotations = await Quotation.query();
+  res.json(quotations);
+});
+
 api.get(`/machine/:machineId`, async (req, res) => {
   const quotations = await Quotation.query()
   .where({ machine_id: req.params.machineId })
