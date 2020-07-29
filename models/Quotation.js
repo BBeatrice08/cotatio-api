@@ -13,7 +13,8 @@ class Quotation extends Model {
 
       properties: {
         id: { type: `integer` },
-        date: { type: `timestamp` },
+        //date: { type: `timestamptz` },
+        date: { type: `datetime` },
         machine_id: { type: `integer `},
         user_id: { type: `integer `},
       },
