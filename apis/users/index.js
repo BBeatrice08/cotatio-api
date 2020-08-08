@@ -8,13 +8,16 @@ api.get(`/`, async (req, res) => {
   res.json(users);
 });
 
-// api.post(`/`, async (req, res) => {
-//   const company = await Company.query()
-//   .insertAndFetch({
-//     name: req.body.name,
-//   });
+api.post(`/`, async (req, res) => {
+  const user = await User.query()
+  .insertAndFetch({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    password: req.body.password,
+  });
 
-//   res.json(company);
-// });
+  res.json(user);
+});
 
 module.exports = api;
