@@ -1,6 +1,7 @@
 
 const express = require(`express`);
 const Session = require(`../../models/Session`);
+const User = require(`../../models/User`);
 const api = express.Router();
 
 // api.get(`/`, (req, res) => {
@@ -14,7 +15,7 @@ api.get(`/`, async (req, res) => {
   res.json(sessions);
 });
 
-api.post(`/`, async (req, res) => {
+/*api.post(`/`, async (req, res) => {
   const session = await Session.query()
   .insertAndFetch({
     date: req.body.date,
@@ -23,6 +24,15 @@ api.post(`/`, async (req, res) => {
   });
 
   res.json(session);
+});*/
+
+api.post(`/`, async (req, res) => {
+  const users = await User.query()
+  .where( 'user.email', req.body.user_email)
+  .where( 'user.password', req.body.user_password);
+  res.json(users);
 });
+
+
 
 module.exports = api;

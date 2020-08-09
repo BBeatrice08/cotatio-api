@@ -8,6 +8,7 @@ api.get(`/`, async (req, res) => {
   res.json(users);
 });
 
+
 api.post(`/`, async (req, res) => {
   const user = await User.query()
   .insertAndFetch({
