@@ -8,6 +8,7 @@ api.get(`/`, async (req, res) => {
   res.json(users);
 });
 
+/* API OK
 api.post(`/`, async (req, res) => {
   const user = await User.query()
   .insertAndFetch({
@@ -17,6 +18,23 @@ api.post(`/`, async (req, res) => {
     password: req.body.password,
   });
 
+  res.json(user);
+});
+*/
+
+/* API TEST*/
+api.post(`/`, async (req, res) => {
+  const user = await User.query()
+  .insertAndFetch({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    password: req.body.password,
+  }, 
+      function (err) {
+        res.json(user);
+      }
+  );
   res.json(user);
 });
 
