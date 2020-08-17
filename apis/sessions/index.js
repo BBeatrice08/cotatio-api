@@ -26,10 +26,12 @@ api.get(`/`, async (req, res) => {
   res.json(session);
 });*/
 
+// il  s'agit d'un faux post. Il s'agit finalement d'un get pour récupérer les données renvoyées
+// par le serveur
 api.post(`/`, async (req, res) => {
   const users = await User.query()
-  .where( 'user.email', req.body.user_email)
-  .where( 'user.password', req.body.user_password);
+  .where( 'user.email', req.body.email)
+  .where( 'user.password', req.body.password);
   res.json(users);
 });
 
