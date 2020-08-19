@@ -2,7 +2,7 @@
 const express = require(`express`);
 const User = require(`../../models/User`);
 const api = express.Router();
-const { NotFoundError } = require('objection');
+//const { NotFoundError } = require('objection');
 
 api.get(`/`, async (req, res) => {
   const users = await User.query();

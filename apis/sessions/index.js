@@ -29,9 +29,20 @@ api.get(`/`, async (req, res) => {
 // il  s'agit d'un faux post. Il s'agit finalement d'un get pour récupérer les données renvoyées
 // par le serveur
 api.post(`/`, async (req, res) => {
-  const users = await User.query()
-  .where( 'user.email', req.body.email)
-  .where( 'user.password', req.body.password);
+  try {
+    const users = await User.query()
+    .where( 'user.email', req.body.email);
+    //.where( 'user.password', req.body.password);
+    //if (user.password == "admin") {
+    //console.log(users);
+    
+    res.json(users);
+  } catch {
+
+    return res.status(500).send("Vous avez rencontré une erreur serveur");
+  }
+
+  //if (users == null) return res.status(404).send('Not found');
   res.json(users);
 });
 
