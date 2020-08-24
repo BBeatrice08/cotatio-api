@@ -28,6 +28,9 @@ api.get(`/`, async (req, res) => {
 
 // il  s'agit d'un faux post. Il s'agit finalement d'un get pour récupérer les données renvoyées
 // par le serveur
+//pas possible de réaliser des vérifications dans l'API. On reçoit un fichier JSON non découpable
+//pour identifier les éléments/ Le contrôle s'effectue dans l'ui dans le store. Bonne pratique ??
+//Cependant on affiche maintenant l'erreur 500 qd prb de communication avec bdd
 api.post(`/`, async (req, res) => {
   try {
     const users = await User.query()
@@ -42,7 +45,6 @@ api.post(`/`, async (req, res) => {
     return res.status(500).send("Vous avez rencontré une erreur serveur");
   }
 
-  //if (users == null) return res.status(404).send('Not found');
   res.json(users);
 });
 

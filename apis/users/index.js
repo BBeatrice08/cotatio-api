@@ -19,7 +19,6 @@ api.post(`/`, async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     })
-    //.returning('email');
     .select('user');
 
     res.json(user);
