@@ -2,7 +2,8 @@
 const express = require(`express`);
 const User = require(`../../models/User`);
 const api = express.Router();
-//const { NotFoundError } = require('objection');
+var bcrypt = require(`../../node_modules/bcryptjs`);
+var salt = bcrypt.genSaltSync(10);
 
 api.get(`/`, async (req, res) => {
   const users = await User.query();
@@ -17,7 +18,7 @@ api.post(`/`, async (req, res) => {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
-      password: req.body.password,
+      password: bcrypt.hashSync((req.body.password), salt),
     })
     .select('user');
 
