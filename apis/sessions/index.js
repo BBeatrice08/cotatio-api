@@ -3,7 +3,6 @@ const express = require(`express`);
 const Session = require(`../../models/Session`);
 const User = require(`../../models/User`);
 const api = express.Router();
-//var jwt = require(`../../node_modules/jsonwebtoken`);
 
 // api.get(`/`, (req, res) => {
 //   res.json({
@@ -40,8 +39,6 @@ api.post(`/`, async (req, res) => {
     //if (user.password == "admin") {
     //console.log(users);
     
-    //var token = jwt.sign({ id: user.id}, 'secret', { expiresIn: 86400 });
-
     res.json(users);
   } catch {
 
