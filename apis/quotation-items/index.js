@@ -11,7 +11,7 @@ api.get(`/`, (req, res) => {
 */
 api.get(`/`, async (req, res) => {
   const quotation_items = await Quotation_Item.query()
-  .orderBy('id');
+  //.orderBy('id');
   //.where({ machine_id: req.params.machineId })
   //.withGraphFetched(`machine`);
 

@@ -13,12 +13,11 @@ class Quotation_Item extends Model {
       type: `object`,
 
       properties: {
-        id: { type: `integer` },
         isConcerned: { type: `boolean` },
         score: { type: `integer` },
         comment: { type: `char` },
         quotation_id: { type: `integer` },
-        item_id: { type: `integer` }
+        item_id: { type: `integer` },
       },
     };
   }
