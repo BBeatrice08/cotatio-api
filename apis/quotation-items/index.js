@@ -18,6 +18,14 @@ api.get(`/`, async (req, res) => {
   res.json(quotation_items);
 });
 
+api.get(`/quotation/:quotationId`, async (req, res) => {
+  const quotation_items = await Quotation_Item.query()
+  .where({ quotation_id: req.params.quotationId })
+  .withGraphFetched(`quotation`);
+
+  res.json(quotation_items);
+})
+
 
 api.post(`/`, async (req, res) => {
   const quotation_item = await Quotation_Item.query()

@@ -24,7 +24,7 @@ class Quotation_Item extends Model {
   }
 
   static relationMappings = {
-    quotations: {
+    quotation: {
       relation: Model.BelongsToOneRelation,
       modelClass: Quotation,
       join: {
@@ -32,7 +32,7 @@ class Quotation_Item extends Model {
         to: `quotation.id`,
       },
     },
-    items: {
+    item: {
       relation: Model.BelongsToOneRelation,
       modelClass: Item,
       join: {
