@@ -14,14 +14,13 @@ exports.setup = function(options, seedLink) {
   seed = seedLink;
 };
 
-exports.up = async function(db) {
-  await db.removeColumn('quotation_item', 'id');
+exports.up = async function (db) {
+  await db.addIndex('user', 'userIndex', ['email'], 'unique');
+
 };
 
-exports.down = async function(db) {
-  await db.addColumn('quotation_item', 'id', {
-    type: 'int',
-  }) 
+exports.down = async function (db) {
+  await db.removeIndex('user', 'userIndex');
 };
 
 exports._meta = {
