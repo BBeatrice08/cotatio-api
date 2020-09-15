@@ -13,6 +13,7 @@ class Quotation_Item extends Model {
       type: `object`,
 
       properties: {
+        id: { type: `integer` },
         isConcerned: { type: `boolean` },
         score: { type: `integer` },
         comment: { type: `char` },
