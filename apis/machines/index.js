@@ -7,6 +7,12 @@ api.get(`/`, async (req, res) => {
   const machines = await Machine.query();
   res.json(machines);
 });
+
+api.get(`/:id`, async (req, res) => {
+  const machines = await Machine.query()
+  .where('id', req.params.id);
+  res.json(machines);
+});
 /*
 api.get(`/site/:siteId`, (req, res) => {
   res.json({
