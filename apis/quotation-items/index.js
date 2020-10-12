@@ -22,10 +22,10 @@ api.get(`/quotation/:quotationId`, async (req, res) => {
   res.json(quotation_items);
 });
 
-api.get(`/quotation/:quotationId/:itemId`, async (req, res) => {
+api.get(`/quotation/:quotationId/item/:itemId`, async (req, res) => {
   const quotation_items = await Quotation_Item.query()
   .where({ quotation_id: req.params.quotationId })
-  .andWhere('item_id', req.params.itemId)
+  .andWhere('item_id', req.params.itemId);
 
   res.json(quotation_items);
 });
