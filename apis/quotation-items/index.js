@@ -11,39 +11,14 @@ api.get(`/`, (req, res) => {
 */
 api.get(`/`, async (req, res) => {
   const quotation_items = await Quotation_Item.query()
-  //.orderBy('id');
-  //.where({ machine_id: req.params.machineId })
-  //.withGraphFetched(`machine`);
 
   res.json(quotation_items);
 });
 
-
-//FONCTION GET OK
-// api.get(`/quotation/:quotationId`, async (req, res) => {
-//   const quotation_items = await Quotation_Item.query()
-//   .where({ quotation_id: req.params.quotationId })
-//   .withGraphFetched(`quotation`);
-
-//   res.json(quotation_items);
-// });
-
-//TEST
-// api.get(`/quotation/:quotationId/item/:itemId`, async (req, res) => {
-//   const quotation_items = await Quotation_Item.query()
-//   .where({ quotation_id: req.params.quotationId },
-//     {item_id: req.params.itemId})
-//   .withGraphFetched(`quotation`)
-//   .withGraphFetched(`item`);
-
-//   res.json(quotation_items);
-// });
-
 api.get(`/quotation/:quotationId/:itemId`, async (req, res) => {
   const quotation_items = await Quotation_Item.query()
   .where({ quotation_id: req.params.quotationId })
-   .andWhere('item_id', req.params.itemId)
-  //.withGraphFetched(`quotation`)
+  .andWhere('item_id', req.params.itemId)
 
   res.json(quotation_items);
 });

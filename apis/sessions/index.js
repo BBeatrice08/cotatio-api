@@ -23,10 +23,7 @@ api.get(`/`, async (req, res) => {
 api.post(`/`, async (req, res) => {
   try {
     const users = await User.query()
-    .where( 'user.email', req.body.email);
-    //.where( 'user.password', req.body.password);
-    //if (user.password == "admin") {
-    //console.log(users);
+    .where('user.email', req.body.email);
     
     res.json(users);
   } catch {

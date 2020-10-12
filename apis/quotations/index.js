@@ -26,7 +26,6 @@ api.post(`/`, async (req, res) => {
   const quotation = await Quotation.query()
   .insertAndFetch({
     date: req.body.date,
-    //date: req.body.to_timestamptz,
     machine_id: req.body.machine_id,
     user_id: req.body.user_id
   });

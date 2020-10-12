@@ -19,7 +19,7 @@ api.get(`/area/:areaId`, async (req, res) => {
 api.get(`/site/:siteId`, async (req, res) => {
   const production_lines = await Production_line.query()  
   .withGraphJoined(`area.site`)
-  .where( 'area:site.id', req.params.siteId );
+  .where('area:site.id', req.params.siteId );
 
   res.json(production_lines);
 });

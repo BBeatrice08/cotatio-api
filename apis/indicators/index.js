@@ -10,14 +10,4 @@ api.get(`/`, async (req, res) => {
   res.json(indicators);
 });
 
-/*
-api.post(`/`, async (req, res) => {
-  const indicator = await Indicator.query()
-  .insertAndFetch({
-    name: req.body.name,
-  });
-
-  res.json(indicator);
-});
-*/
 module.exports = api;

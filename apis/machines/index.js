@@ -13,16 +13,10 @@ api.get(`/:id`, async (req, res) => {
   .where('id', req.params.id);
   res.json(machines);
 });
-/*
-api.get(`/site/:siteId`, (req, res) => {
-  res.json({
-    success: true,
-  })
-});
-*/
+
 api.get(`/production-line/:production_lineId`, async (req, res) => {
   const machines = await Machine.query()
-  .where( 'production_line_id', req.params.production_lineId )
+  .where('production_line_id', req.params.production_lineId )
   .withGraphFetched(`production_line`);
 
   res.json(machines);
@@ -31,7 +25,7 @@ api.get(`/production-line/:production_lineId`, async (req, res) => {
 api.get(`/area/:areaId`, async (req, res) => {
   const machines = await Machine.query()  
   .withGraphJoined(`production_line.area`)
-  .where( 'production_line:area.id', req.params.areaId );
+  .where('production_line:area.id', req.params.areaId );
 
   res.json(machines);
 });
@@ -39,7 +33,7 @@ api.get(`/area/:areaId`, async (req, res) => {
 api.get(`/site/:siteId`, async (req, res) => {
   const machines = await Machine.query()  
   .withGraphJoined(`production_line.area.site`)
-  .where( 'production_line:area:site.id', req.params.siteId );
+  .where('production_line:area:site.id', req.params.siteId );
 
   res.json(machines);
 });
@@ -47,7 +41,7 @@ api.get(`/site/:siteId`, async (req, res) => {
 api.get(`/company/:companyId`, async (req, res) => {
   const machines = await Machine.query()  
   .withGraphJoined(`production_line.area.site.company`)
-  .where( 'production_line:area:site:company.id', req.params.companyId );
+  .where('production_line:area:site:company.id', req.params.companyId );
 
   res.json(machines);
 });
