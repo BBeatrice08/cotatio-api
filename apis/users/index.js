@@ -10,7 +10,6 @@ api.get(`/`, async (req, res) => {
   res.json(users);
 });
 
-/* API TEST OK*/
 api.post(`/`, async (req, res) => {
   try {
     const user = await User.query()

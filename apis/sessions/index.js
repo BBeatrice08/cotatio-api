@@ -17,9 +17,9 @@ api.get(`/`, async (req, res) => {
 
 // il  s'agit d'un faux post. Il s'agit finalement d'un get pour récupérer les données renvoyées
 // par le serveur
-//pas possible de réaliser des vérifications dans l'API. On reçoit un fichier JSON non découpable
+//Impossible de réaliser des vérifications dans l'API car on reçoit un fichier JSON non découpable
 //pour identifier les éléments/ Le contrôle s'effectue dans l'ui dans le store. Bonne pratique ??
-//Cependant on affiche maintenant l'erreur 500 qd prb de communication avec bdd
+//Cependant on affiche maintenant l'erreur 500 quand problème de communication avec la base de données
 api.post(`/`, async (req, res) => {
   try {
     const users = await User.query()
