@@ -2,13 +2,7 @@
 const express = require(`express`);
 const Quotation_Item = require(`../../models/Quotation_Item`);
 const api = express.Router();
-/*
-api.get(`/`, (req, res) => {
-  res.json({
-    success: true,
-  })
-});
-*/
+
 api.get(`/`, async (req, res) => {
   const quotation_items = await Quotation_Item.query()
 

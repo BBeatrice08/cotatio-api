@@ -4,12 +4,6 @@ const Session = require(`../../models/Session`);
 const User = require(`../../models/User`);
 const api = express.Router();
 
-// api.get(`/`, (req, res) => {
-//   res.json({
-//     success: true,
-//   })
-// }),
-
 api.get(`/`, async (req, res) => {
   const sessions = await Session.query();
   res.json(sessions);
